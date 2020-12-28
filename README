@@ -1,0 +1,11 @@
+@author: Yetzabel González
+
+Pasos seguidos para llevar acabo el análisis. 
+
+1° Utilizar el algoritmo arffToCsv.py para tranformar los archivos g1-r7.arff y g2-r7.arff a formato .csv (ejecutar python3 arffToCsv.py nombrearchivo.arff) la salida sera un archivo con el mismo nombre pero con extensión .csv
+2° Utilizar el algoritmo feature_selection_anova.py para escoger los mejores atributos para cada set de datos (python3 feature_seection_anova.py) el nombre del set de datos se cambia dentro del algoritmo, generar un archivo con los mejores atributos para cada set de datos y guardarlos con la extensión nombreSetDatos_attr.csv. *Es necesario sustituir la etiqueta class por clase, dentro del set de datos. 
+3° utilizar el achivo resample_attr.py para hacer balance de clases, (dentro del archivo se cambia el set de datos, que se este utilizando, de acuerdo al set de datos se debe intervenir la linea 24, n_samples=59 para el caso g1-r7 y n_samples=46 para el caso g2-r7) se ejecuta como: python3 resample_attr.py. *Es necesario generar el cambio de las clases, la clase 0 para a ser la clase 1 y la clase 1 para a ser la clase 0. La salida del archivo sera setdedatos_attr_resample.csv.
+4° Utilizar DiferentesAlgoritmos_ROC.py para generar las matrices de confusión y la curva ROC (dentro del archivo se cambia el nombre del set de datos en la linea 22, utilizar la salida anterior). Como resultado se obtienen 30 imagenes (5 por cada modelo de Regresión) y una imagen que contiene la curva ROC. 
+5° Finalmente ejecutar recall_precision.py para obtener la curva de precision (se debe ejecutar con el archivo setdedatos_attr_resample.csv mencionado en el paso n°3) se obtiene como salida una imagen correspondiente a la curva de precision v/s recall. 
+
+
